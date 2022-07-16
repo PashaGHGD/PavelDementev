@@ -1,41 +1,69 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerMove : MonoBehaviour {
-    public Rigidbody RigidbodyPlayer;
+   
     [SerializeField] private float SpeedGo;
-    [SerializeField] private float SpeedRotation;
     [SerializeField] private float SpeedJump;
     [SerializeField] private bool Grounded;
-    private float StartSpeed;
+    [SerializeField] private float AngularSpeed = 500f;
+
+
+    private Rigidbody _rigidbodyPlayer;
+    private const string _mouseX = "Mouse X";
+    private float _startSpeed;
+    private bool _startJump = false;
+    private float _timerJump;
+    private Vector3 _rotationPlayer;
+    public Text TextBullet;
     void Start() {
-        StartSpeed = SpeedGo;
+        _startSpeed = SpeedGo;
+        _rigidbodyPlayer = GetComponent<Rigidbody>();
+
     }
 
 
     void Update() {
+        TextBullet.text = GetComponent<GunObj>().ShowBullet();
         PlayerGo();
+
+
         if (Grounded) {
             if (Input.GetKeyDown(KeyCode.Space)) {
 
-                Jump();
-
+                _startJump = true;
+                _rigidbodyPlayer.isKinematic = true;
             }
-
             if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)) {
 
-                SpeedGo = StartSpeed * 2f;
+                SpeedGo = _startSpeed * 2f;
 
             } else {
-                SpeedGo = StartSpeed;
+                SpeedGo = _startSpeed;
             }
+        }
+        if (_startJump == true) {
+            _timerJump += Time.deltaTime;
+            if (_timerJump >= 0.5f) {
+                _startJump = false;
+                _timerJump = 0f;
+                _rigidbodyPlayer.isKinematic = false;
 
+            } else {
+                Jump();
+            }
         }
     }
 
+
     #region(ױמהüבא)
     public void PlayerGo() {
+
+        _rotationPlayer.y = Input.GetAxis(_mouseX) * AngularSpeed * Time.deltaTime;
+        transform.Rotate(_rotationPlayer);
+
         if (Input.GetAxis("Horizontal") > 0) {
 
             transform.Translate(SpeedGo * Time.deltaTime, 0, 0);
@@ -59,9 +87,8 @@ public class PlayerMove : MonoBehaviour {
     #endregion
 
     public void Jump() {
+        transform.Translate(0, SpeedJump * Time.deltaTime, 0);
 
-        RigidbodyPlayer.AddRelativeForce(0f, SpeedJump, 0f, ForceMode.VelocityChange);
-        //transform.position = new Vector3(transform.position.x,5f*Time.deltaTime*SpeedJump,transform.position.z);
     }
 
     private void OnCollisionEnter(Collision collision) {
