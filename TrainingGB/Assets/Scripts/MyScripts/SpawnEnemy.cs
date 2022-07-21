@@ -3,27 +3,34 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class SpawnEnemy : MonoBehaviour {
-    public GameObject GameObjectEnemy;
+  
+
+    public GameObject[] SpawnObj;
     [SerializeField] private float RundomPosA;
     [SerializeField] private float RundomPosB;
     [SerializeField] private float StartSpawn;
 
     private float a;
 
-    void Start() {
-
-    }
+  
 
 
     void Update() {
         a += Time.deltaTime;
         if (a >= StartSpawn) {
-
-            Instantiate(GameObjectEnemy, RundomNamber(RundomPosA, RundomPosB), Quaternion.identity);
+            SpawnOblects();
             a = 0f;
         }
     }
 
+    public void SpawnOblects() {
+
+        for (int i = 0; i < SpawnObj.Length; i++) {
+
+            Instantiate(SpawnObj[i], RundomNamber(RundomPosA, RundomPosB), Quaternion.identity);
+        }
+
+    }
 
     private Vector3 RundomNamber(float RundomPosA, float RundomPosB) {
 

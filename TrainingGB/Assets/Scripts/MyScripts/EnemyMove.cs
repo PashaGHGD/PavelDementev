@@ -25,10 +25,16 @@ public class EnemyMove : MonoBehaviour {
         Vector3 Pos = PlayerTransform.position - transform.position;
         Quaternion rotation = Quaternion.LookRotation(Pos, Vector3.up);
         transform.rotation = rotation;
-       
-        if (PosPlayer >= 2f) {
-            transform.Translate(0f, 0f, SpeedGo * Time.deltaTime);
+        if (PosPlayer <= 15f) {
+            GetComponent<GunObj>().ShotBullets();
         }
+        if(PosPlayer<= 25f) {
+            if (PosPlayer >= 2f) {
+                transform.Translate(0f, 0f, SpeedGo * Time.deltaTime);
+            }
+        }
+        
+      
     }
 
 }
