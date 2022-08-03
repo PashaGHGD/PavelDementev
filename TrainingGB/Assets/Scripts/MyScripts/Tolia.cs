@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class Tolia : MonoBehaviour {
    
-        [SerializeField] private float speed = 3f;
-        [SerializeField] private float runSpeed = 5f;
+        [SerializeField] private float speed;
+        [SerializeField] private float runSpeed;
         // [SerializeField] private float speedJump = 1f;
-        [SerializeField] private float angularSpeed = 100f;
+        [SerializeField] private float angularSpeed;
 
       //  [SerializeField] private GameObject _mine;
        // [SerializeField] private Transform _mineSpawnPlace;

@@ -18,9 +18,13 @@ public class PlayerMove : MonoBehaviour {
     private float _timerJump;
     private Vector3 _rotationPlayer;
     public Text TextBullet;
+
+    private void Awake() {
+        _rigidbodyPlayer = GetComponent<Rigidbody>();
+    }
     void Start() {
         _startSpeed = SpeedGo;
-        _rigidbodyPlayer = GetComponent<Rigidbody>();
+       
 
     }
 
