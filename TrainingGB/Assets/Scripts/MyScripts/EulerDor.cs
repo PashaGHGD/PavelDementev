@@ -6,7 +6,8 @@ public class EulerDor : MonoBehaviour {
     [SerializeField] private float rotationSpeed = 45;
     private Vector3 currentEulerAngles;
     private float y;
-
+    
+    [SerializeField] private int NumberKeyOpenDor;
 
     void Update() {
 
@@ -26,9 +27,19 @@ public class EulerDor : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other) {
         if (other.gameObject.GetComponent<PlayerMove>()) {
+            if (other.GetComponent<InventoryPlayer>()) {
 
+                for (int i = 0; i < other.GetComponent<InventoryPlayer>().KeyNamber.Count; i++) {
+                    if(NumberKeyOpenDor == other.GetComponent<InventoryPlayer>().KeyNamber[i]) {
 
-            y = 1f;
+                        y = 1f;
+
+                    }
+                }
+              
+            }
+
+            //y = 1f;
 
         }
     }
