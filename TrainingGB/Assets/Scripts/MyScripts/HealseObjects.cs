@@ -19,6 +19,9 @@ public class HealseObjects : MonoBehaviour {
     }
     public virtual void DamageObj(int damage) {
         if (Healse > MinHealse) {
+            if (Healse <= 0) {
+                Healse = 0;
+            }
             Healse -= damage;
             //TextHealse.text = "Жизни: " + Healse.ToString();
         }

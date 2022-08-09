@@ -6,13 +6,13 @@ public class CameraMove : MonoBehaviour
 {
     [SerializeField] private Transform PlayerTransform;
     private void Awake() {
-        PlayerTransform = FindObjectOfType<PlayerMove>().transform;
-    }
-    void Start()
-    {
+        if(PlayerTransform == null) {
+
+            PlayerTransform = FindObjectOfType<PlayerMove>().transform;
+        }
        
     }
-
+   
     private void LateUpdate() {
         transform.SetPositionAndRotation(PlayerTransform.position,PlayerTransform.rotation);
     }

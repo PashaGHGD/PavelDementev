@@ -7,11 +7,9 @@ public class EnemyMove : MonoBehaviour {
     public Transform PlayerTransform;
 
 
-    private void Awake() {
-        PlayerTransform = FindObjectOfType<PlayerMove>().transform;
-    }
+  
     void Start() {
-
+        PlayerTransform = FindObjectOfType<PlayerRB>().transform;
     }
 
 
@@ -28,13 +26,13 @@ public class EnemyMove : MonoBehaviour {
         if (PosPlayer <= 15f) {
             GetComponent<GunObj>().ShotBullets();
         }
-        if(PosPlayer<= 25f) {
+        if (PosPlayer <= 25f) {
             if (PosPlayer >= 2f) {
                 transform.Translate(0f, 0f, SpeedGo * Time.deltaTime);
             }
         }
-        
-      
+
+
     }
 
 }
