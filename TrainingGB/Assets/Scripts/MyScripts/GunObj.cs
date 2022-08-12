@@ -26,7 +26,7 @@ public class GunObj : MonoBehaviour {
     private void Update() {
 
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        Debug.DrawRay(SpawnBullet.position, transform.forward * 100f, Color.red);
+        Debug.DrawRay(SpawnBullet.position, SpawnBullet.forward * 100f, Color.red);
         if(Physics.Raycast(ray, out RaycastHit hit)) {
             PoinerTransform.position = hit.point;
         }
