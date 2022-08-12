@@ -12,22 +12,28 @@ public class PlayerRB : MonoBehaviour {
     private Vector3 rotationPlayer;
     private float jumpY;
     private float startSpeed;
-   public bool Grounded;
+    private bool Grounded;
+    [SerializeField] private Animator animatorPlayer;
     [SerializeField] private float angularSpeed = 300f;
     [SerializeField] private float speedMovePlayer = 0.4f;
     [SerializeField] private float speedJump = 5f;
 
 
     void Awake() {
+
         rigidbodyPlayer = GetComponent<Rigidbody>();
         rigidbodyPlayer.interpolation = RigidbodyInterpolation.Interpolate;
-      //  startSpeed = speedMovePlayer;
+        //  startSpeed = speedMovePlayer;
     }
     private void Start() {
         startSpeed = speedMovePlayer;
     }
-
+    private void Update() {
+        AninManager();
+    }
     private void FixedUpdate() {
+
+
         PlayerRotationY();
         if (!Grounded) {
             speedMovePlayer = SpeedMove(speedMovePlayer);
@@ -45,15 +51,16 @@ public class PlayerRB : MonoBehaviour {
     }
     private float SpeedMove(float speedMovePlayer) {
 
-     return   speedMovePlayer *= 0.5f;
+        return speedMovePlayer *= 0.5f;
 
     }
     public void PlayerMove() {
-        rigidbodyPlayer.AddRelativeForce(Input.GetAxis(Horizontal) * speedMovePlayer, jumpY * speedJump, Input.GetAxis(Vertical) * speedMovePlayer, ForceMode.VelocityChange);
+        rigidbodyPlayer.AddRelativeForce(0f, jumpY * speedJump, Input.GetAxis(Vertical) * speedMovePlayer, ForceMode.VelocityChange);
     }
     public void PlayerRotationY() {
-        rigidbodyPlayer.AddRelativeTorque(angularSpeed * Input.GetAxis(mouseX) * Vector3.up,ForceMode.VelocityChange);
-     
+
+        //  rigidbodyPlayer.AddRelativeTorque( Input.GetAxis(Horizontal) * Vector3.Lerp(Vector3.up, Vector3.up*angularSpeed, 500f), ForceMode.VelocityChange);
+        rigidbodyPlayer.angularVelocity = Input.GetAxis(Horizontal) * angularSpeed * Vector3.up;
     }
     private void OnCollisionEnter(Collision collision) {
 
@@ -67,6 +74,21 @@ public class PlayerRB : MonoBehaviour {
     private void OnCollisionExit(Collision collision) {
 
         Grounded = false;
+    }
+
+
+
+    public void AninManager() {
+       
+     Vector3 localRbVelocityZ =   transform.InverseTransformDirection(rigidbodyPlayer.velocity);
+      
+            animatorPlayer.SetFloat("Front", localRbVelocityZ.z);
+
+
+       
+        animatorPlayer.SetFloat("Right", rigidbodyPlayer.angularVelocity.y);
+
+
     }
 
 }
