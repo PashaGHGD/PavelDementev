@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 692589607205436116}
   - component: {fileID: 692589607205436106}
   - component: {fileID: 692589607205436107}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,7 +93,7 @@ GameObject:
   - component: {fileID: 692589608233298335}
   - component: {fileID: 692589608233298332}
   - component: {fileID: 692589608233298333}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -173,7 +173,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 692589608836539329}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: SpawnBullet
   m_TagString: Untagged
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
@@ -209,7 +209,7 @@ GameObject:
   - component: {fileID: -2611824457503946407}
   - component: {fileID: 8831622384841176739}
   - component: {fileID: 1893571199827397826}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: EnemyTurret (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -274,12 +274,15 @@ MonoBehaviour:
   BulletPrefab: {fileID: 4900640838569583542, guid: a59c948a2c182744cba317272accce73,
     type: 3}
   SpawnBullet: {fileID: 692589608836539329}
+  PoinerTransform: {fileID: 0}
   BulletShotPeriod: 1
   BulletMax: 100
   BulletMin: 0
   BulletAmount: 100
   BulletDamage: 3
   isEnemyBullet: 1
+  isPlayerGun: 0
+  SpeedRotation: 10
 --- !u!114 &-2611824457503946407
 MonoBehaviour:
   m_ObjectHideFlags: 0
