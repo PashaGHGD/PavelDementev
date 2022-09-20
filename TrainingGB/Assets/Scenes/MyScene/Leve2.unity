@@ -889,6 +889,7 @@ MonoBehaviour:
   BulletAmount: 200
   BulletDamage: 1
   isEnemyBullet: 0
+  isPlayerGun: 0
   SpeedRotation: 10
 --- !u!114 &181715932
 MonoBehaviour:
@@ -1706,7 +1707,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 059e99a55d1d3614ebfbdffbbe2e3e25, type: 2}
+  - {fileID: 2100000, guid: 1acb9654b72ad9744851433f9468d16d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2046,7 +2047,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 059e99a55d1d3614ebfbdffbbe2e3e25, type: 2}
+  - {fileID: 2100000, guid: 5fcb439bdbe4be948b38e8974f866782, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3113,7 +3114,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 059e99a55d1d3614ebfbdffbbe2e3e25, type: 2}
+  - {fileID: 2100000, guid: 65a419d3c074dbb40b8d5614b499f763, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -6221,7 +6222,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 059e99a55d1d3614ebfbdffbbe2e3e25, type: 2}
+  - {fileID: 2100000, guid: 4957d031df9701446a957d9c4bb4b217, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -6506,6 +6507,7 @@ MonoBehaviour:
   BulletAmount: 50
   BulletDamage: 0
   isEnemyBullet: 0
+  isPlayerGun: 0
   SpeedRotation: 10
 --- !u!114 &1579572514
 MonoBehaviour:
@@ -7904,11 +7906,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyNavMesh (6)
       objectReference: {fileID: 0}
-    - target: {fileID: 8951944258702491405, guid: 718ac1793469d614aa62870038e103c5,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8951944258702491407, guid: 718ac1793469d614aa62870038e103c5,
         type: 3}
       propertyPath: playerTransform
@@ -7988,11 +7985,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8951944258702491409, guid: 718ac1793469d614aa62870038e103c5,
-        type: 3}
-      propertyPath: m_StoppingDistance
-      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 718ac1793469d614aa62870038e103c5, type: 3}

@@ -20,9 +20,7 @@ public class GunObj : MonoBehaviour {
     private float _timer;
     public float SpeedRotation = 10f;
 
-    private void Start() {
-
-    }
+  
     private void Update() {
         if (isPlayerGun) {
 
