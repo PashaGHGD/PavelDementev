@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8042208976067481500}
   - component: {fileID: 8042208976067481501}
   - component: {fileID: 8042208976067481498}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: LootBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,7 +72,7 @@ GameObject:
   - component: {fileID: 8042208976681119816}
   - component: {fileID: 8042208976681119818}
   - component: {fileID: 8042208976681119819}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}

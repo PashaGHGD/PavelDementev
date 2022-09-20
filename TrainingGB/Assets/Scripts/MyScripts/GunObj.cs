@@ -16,27 +16,28 @@ public class GunObj : MonoBehaviour {
     [SerializeField] private float BulletAmount = 50f;
     [SerializeField] private int BulletDamage;
     [SerializeField] private bool isEnemyBullet;
-   
+    public bool isPlayerGun;
     private float _timer;
     public float SpeedRotation = 10f;
 
-    private void Start() {
-
-    }
+  
     private void Update() {
+        if (isPlayerGun) {
 
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        Debug.DrawRay(SpawnBullet.position, SpawnBullet.forward * 100f, Color.red);
-        if(Physics.Raycast(ray, out RaycastHit hit)) {
-            PoinerTransform.position = hit.point;
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            Debug.DrawRay(SpawnBullet.position, SpawnBullet.forward * 100f, Color.red);
+            if (Physics.Raycast(ray, out RaycastHit hit)) {
+                PoinerTransform.position = hit.point;
+            }
+            Vector3 Pos = PoinerTransform.position - SpawnBullet.position;
+            var RotationLerp = Vector3.RotateTowards(SpawnBullet.forward, Pos, SpeedRotation * Time.deltaTime, 0f);
+            //  Quaternion rotation = Quaternion.LookRotation(Pos, Vector3.up);
+            SpawnBullet.rotation = Quaternion.LookRotation(RotationLerp);
         }
-        Vector3 Pos = PoinerTransform.position - SpawnBullet.position;
-        var RotationLerp = Vector3.RotateTowards(SpawnBullet.forward, Pos, SpeedRotation * Time.deltaTime, 0f);
-        //  Quaternion rotation = Quaternion.LookRotation(Pos, Vector3.up);
-        SpawnBullet.rotation = Quaternion.LookRotation(RotationLerp);
+      
 
 
-        if (Input.GetKey(KeyCode.Mouse0) && isEnemyBullet == false) {
+        if (Input.GetKey(KeyCode.Mouse0) && !isEnemyBullet) {
 
             ShotBullets();
         }
