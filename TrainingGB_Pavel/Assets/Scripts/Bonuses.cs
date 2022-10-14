@@ -13,11 +13,10 @@ public class Bonuses : MonoBehaviour {
     private int Amount = 1;//дефолтное значение
     [SerializeField] private protected bool isPositiveBool;
     [SerializeField] private protected bool isNegativeBool;
+   
 
 
-
-
-
+   
 
     public virtual int Hegative() {
 
