@@ -1,0 +1,2 @@
+﻿public interface IData<T> {
+}
