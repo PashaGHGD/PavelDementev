@@ -6,7 +6,7 @@ namespace Lesson {
 
     public class Health : IHealth {
 
-
+        //
 
         /// <summary>
         /// метод который отвечает за урон 
@@ -24,9 +24,9 @@ namespace Lesson {
         /// <summary>
         /// метод который отвечает за добавления здоровья 
         /// </summary>
-        /// <param name="health"></param>
-        /// <param name="currentHealthObject"></param>
-        /// <param name="maxHealthObject"></param>
+        /// <param name="health"></param//входные данные на повышение здоровья>
+        /// <param name="currentHealthObject"></param//текущее здоровье>
+        /// <param name="maxHealthObject"></param// ьфксимальное здоровье>
         /// <returns></returns>
         public int AddHealth(int health, int currentHealthObject, int maxHealthObject) {
             if (currentHealthObject > 0 && currentHealthObject! > maxHealthObject) {
