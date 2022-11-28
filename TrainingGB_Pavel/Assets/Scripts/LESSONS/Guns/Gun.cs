@@ -6,13 +6,13 @@ public class Gun : BehaviourStart {
 
     [SerializeField] private float shotPeriodTime;// время между выстрелами
     [SerializeField] private float gunReloadingTime;// перезарядка пушки
-    [SerializeField] private int numberBullets;// количество пуль в магазине
+    [SerializeField] protected int numberBullets;// количество пуль в магазине
     [SerializeField] private float bulletSpeed = 2f;// скорость пули
-    [SerializeField] GameObject bulletPrefab;
-    [SerializeField] private int bulletDamag;
+    [SerializeField] protected GameObject bulletPrefab;
+    [SerializeField] protected int bulletDamag;
     [SerializeField] private Transform spawnBulletTransform;
-    [SerializeField] private Transform pullBulletTransform;
-    private List<GameObject> _bulletList = new List<GameObject>();
+    [SerializeField] protected Transform pullBulletTransform;
+    protected List<GameObject> _bulletList = new List<GameObject>();
     private float _timershotPeriod;
     private float _timerGunReloading;
     private bool _boolGunReloading = false;
@@ -61,7 +61,7 @@ public class Gun : BehaviourStart {
         _bulletList[indexBullet].transform.position = new Vector3(pullBulletTransform.position.x, pullBulletTransform.position.y, pullBulletTransform.position.z);
         _bulletList[indexBullet].SetActive(false);
     }
-    public void InstantiateBullet() {
+    public virtual void InstantiateBullet() {
         for (int i = 0; i < numberBullets; i++) {
             GameObject newBullet = Instantiate(bulletPrefab, pullBulletTransform.position, Quaternion.identity);
             newBullet.GetComponent<PullBullet>().StarFind();
