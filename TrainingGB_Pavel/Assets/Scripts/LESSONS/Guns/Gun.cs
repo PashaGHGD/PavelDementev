@@ -19,7 +19,7 @@ public class Gun : BehaviourStart {
     private int _indexBullet = 0;
 
 
-    private void Start() {
+    public virtual void Start() {
         InstantiateBullet();
     }
     private void Update() {
@@ -34,10 +34,10 @@ public class Gun : BehaviourStart {
             }
         }
     }
-    public void Shot() {
+    public virtual void Shot() {
 
 
-        if (Input.GetMouseButton(0)) {
+        //if (Input.GetMouseButton(0)) {
 
             if (numberBullets > 0 && _timershotPeriod >= shotPeriodTime) {
                 if (_indexBullet > (numberBullets - 1)) {
@@ -52,7 +52,7 @@ public class Gun : BehaviourStart {
                 _timershotPeriod = 0f;
 
             }
-        }
+        //}
     }
     public int IndexBulletGuns() {
         return _indexBullet;
@@ -70,25 +70,14 @@ public class Gun : BehaviourStart {
             _bulletList.Add(newBullet);
         }
     }
-}
-public class InitializationObjectsPullBullet {
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <param name="amountObject">количество объектов которые появится</param>
-    /// <param name="prefab">префаб</param>
-    /// <param name="transformObjest">позиция где появится объект в пулл</param>
-    /// <param name="objectList">лист где будут храниться объекты при инициализации</param>
-    public void InstantiateObjects(int amountObject, GameObject prefab, Transform transformObjest, List<GameObject> objectList) {
-        for (int i = 0; i < amountObject; i++) {
-            GameObject newBullet = Object.Instantiate(prefab, transformObjest.position, Quaternion.identity);
-            newBullet.GetComponent<PullBullet>().StarFind();
-            newBullet.SetActive(false);
-            objectList.Add(newBullet);
 
-        }
+    public virtual void StartOptions() {
+
+
     }
+
 }
+
 
 
 

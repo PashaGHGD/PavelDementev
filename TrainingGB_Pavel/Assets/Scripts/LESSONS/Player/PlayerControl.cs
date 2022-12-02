@@ -20,7 +20,7 @@ using UnityEngine;
         }
         private void FixedUpdate() {
             InputPlayer.PlayerMoveHorizontal(PlayerSpeedHorizontal, rigidbodyPlayer);
-            InputPlayer.PlayerMoveVertical(PlayerSpeedVertical, rigidbodyPlayer);
+          
             
         }
 
