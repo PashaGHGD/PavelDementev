@@ -17,9 +17,10 @@ public class Gun : BehaviourStart {
     private float _timerGunReloading;
     private bool _boolGunReloading = false;
     private int _indexBullet = 0;
-
+   
 
     public virtual void Start() {
+      
         InstantiateBullet();
     }
     private void Update() {
@@ -39,19 +40,19 @@ public class Gun : BehaviourStart {
 
         //if (Input.GetMouseButton(0)) {
 
-            if (numberBullets > 0 && _timershotPeriod >= shotPeriodTime) {
-                if (_indexBullet > (numberBullets - 1)) {
-                    _indexBullet = 0;
-                    _boolGunReloading = true;
-                }
-                _bulletList[_indexBullet].transform.SetPositionAndRotation(new Vector3(spawnBulletTransform.position.x, spawnBulletTransform.position.y, spawnBulletTransform.position.z), spawnBulletTransform.rotation);
-                _bulletList[_indexBullet].SetActive(true);
-
-                _bulletList[_indexBullet].GetComponent<Rigidbody>().velocity = spawnBulletTransform.forward * bulletSpeed;
-                _indexBullet++;
-                _timershotPeriod = 0f;
-
+        if (numberBullets > 0 && _timershotPeriod >= shotPeriodTime) {
+            if (_indexBullet > (numberBullets - 1)) {
+                _indexBullet = 0;
+                _boolGunReloading = true;
             }
+            _bulletList[_indexBullet].transform.SetPositionAndRotation(new Vector3(spawnBulletTransform.position.x, spawnBulletTransform.position.y, spawnBulletTransform.position.z), spawnBulletTransform.rotation);
+            _bulletList[_indexBullet].SetActive(true);
+
+            _bulletList[_indexBullet].GetComponent<Rigidbody>().velocity = spawnBulletTransform.forward * bulletSpeed;
+            _indexBullet++;
+            _timershotPeriod = 0f;
+
+        }
         //}
     }
     public int IndexBulletGuns() {
