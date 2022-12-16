@@ -11,7 +11,7 @@ public static class InputPlayer {
 
     public static void PlayerMoveHorizontal(float horizontalSpeed, Rigidbody rigidbodyPlayer) {
         if (Input.GetAxis(_horizontal) != 0) {
-            rigidbodyPlayer.AddRelativeForce(Input.GetAxis(_horizontal) * horizontalSpeed * Vector3.right, ForceMode.VelocityChange);
+            rigidbodyPlayer.velocity = Input.GetAxis(_horizontal) * horizontalSpeed * Vector3.right;
         }
     }
     public static void PlayerMoveVertical(float speedVertical, Rigidbody rigidbodyPlayer) {
@@ -24,7 +24,7 @@ public static class InputPlayer {
 
         rigidbody = rigidbody.GetComponent<Rigidbody>();
 
-        rigidbody.constraints = RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationX;
+        //  rigidbody.constraints = RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationX;// отключает все повороты кроме по оси Y
 
     }
 

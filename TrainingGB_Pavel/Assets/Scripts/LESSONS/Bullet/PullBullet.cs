@@ -5,14 +5,14 @@ using UnityEngine;
 
 public class PullBullet : MonoBehaviour {
 
-    [SerializeField] private Gun Gun;
+    [SerializeField] protected Gun Gun;
     [SerializeField] private float lifeTimeBullet = 3f;
-    private int _indexBullet = 0;
+    protected int _indexBullet = 0;
     private float _timer;
 
-    private void Start() {
+    public virtual void Start() {
 
-        Gun = FindObjectOfType<Gun>();
+      
         _indexBullet = Gun.IndexBulletGuns();
 
     }
@@ -33,9 +33,9 @@ public class PullBullet : MonoBehaviour {
             Gun.StartPullBullet(_indexBullet - 1);
         }
     }
-    public void StarFind() {
+    public virtual void StarFind() {
 
-        Gun = FindObjectOfType<Gun>();
+      
 
     }
 }
