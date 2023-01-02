@@ -53,17 +53,17 @@ public class SpriteAnimarionConyrollerPlayer : IDisposable {
                 animation.Track = track;
                 animation.Sprites = _config.Sequences.Find(sequence => sequence.Track == track).Sprites;
                 animation.Couter = 0;
-            } else {
-
-                _activeAnimations.Add(spriteRenderer, new Animation() {
-                    Track = track,
-                    Sprites = _config.Sequences.Find(sequence => sequence.Track == track).Sprites,
-                    Loop = loop,
-                    Speed = speed
-                });
             }
 
 
+        } else {
+
+            _activeAnimations.Add(spriteRenderer, new Animation() {
+                Track = track,
+                Sprites = _config.Sequences.Find(sequence => sequence.Track == track).Sprites,
+                Loop = loop,
+                Speed = speed
+            });
         }
     }
     public void StopAnimation(SpriteRenderer sprite) {
