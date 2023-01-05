@@ -381,9 +381,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e1662b1ca8c2c343bcb72b01cd4438e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerView: {fileID: 1945238254}
-  config: {fileID: 0}
-  animationSpeed: 15
+  playerView: {fileID: 1945238254}
 --- !u!4 &696634145
 Transform:
   m_ObjectHideFlags: 0
