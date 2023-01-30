@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class LevelObjectView : MonoBehaviour
 {
-    public Transform TransformView;
+    public Transform _transform;
     public SpriteRenderer SpriteRendererView;
     public Collider2D Collider2DView;
-    public Rigidbody2D Rigidbody2DView;
+    public Rigidbody2D _rb;
 }
